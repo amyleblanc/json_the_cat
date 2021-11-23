@@ -12,7 +12,8 @@ request(options, function (error, response, body) {
   if (error) {
     console.log('error:', error); // Print the error if one occurred
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+    return;
   }
-  console.log(JSON.parse(body));
-  return;
+  let breedInfo = JSON.parse(body); // asign variable to returned body info (returned as an array)
+  console.log(breedInfo[0].description); // access first item in array [0] to get description value of object 
 });
