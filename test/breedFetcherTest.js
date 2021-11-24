@@ -19,12 +19,12 @@ describe('fetchBreedDescription', () => {
   it('returns an error for invalid/non-existent breed, via callback', (done) => {
     fetchBreedDescription('Dog', (err, desc) => {
       // we expect an error for this scenario
-      assert.equal(err, null);
 
-      const expectedDesc = 'undefined';
+      const expectedErr = 'Invalid/non-existent breed entered';
+      assert.equal(err, expectedErr);
 
-      // compare returned description
-      assert.equal(expectedDesc, desc.trim());
+      // we expect no description for this scenario
+      assert.equal(null, desc);
 
       done();
     });
